@@ -85,7 +85,7 @@ print(scoreList(['a','s','m','o', 'f', 'o'], scrabbleScores))
 
 def bestWord(rack):
     """returns the best word that can be made with the rack (highest value)"""
-    possibleWords = scoreList(rack)
+    possibleWords = scoreList(rack, scrabbleScores)
     def wordHelper(count, index, score):
         if (count == len(possibleWords)):
             return possibleWords[index]
@@ -95,6 +95,6 @@ def bestWord(rack):
         return wordHelper(count+1, index, score)
     return wordHelper(0, 0, 0)
 
-#print(bestWord(["a", "s", "m", "t", "p"]))
+print(bestWord(["a", "s", "m", "t", "p"]))
 #print(bestWord(['a','b','m','d']))
 #print(bestWord(['a', 'b', 'v', 'x', 'y', 'y', 'z', 'z', 'z']))

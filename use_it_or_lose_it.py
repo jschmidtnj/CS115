@@ -31,6 +31,8 @@ def subset(target, lst):
     #return use_it or lose_it
     return subset(target - lst[0], lst[1:]) or subset(target, lst[1:])
 
+print(subset(5,[1,3,2,4,5]))
+
 def subset_with_values(target, lst):
     """Determines whether or not it is possible to create the target sum using
     values in the list. Values in the list can be positive, negative, or zero.

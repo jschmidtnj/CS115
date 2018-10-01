@@ -28,5 +28,5 @@ def knapsack(capacity, itemList):
         return use_it
     return lose_it
 
-#print(knapsack(8, [[36, 35], [10, 28], [39, 47], [8, 1], [7, 24]]))
+print(knapsack(8, [[36, 35], [10, 28], [39, 47], [8, 1], [7, 24]]))
 #sum_use_it = reduce(lambda x, y: x + y, (lambda a, b: [((use_it[1])[a])[1]] + [((use_it[1])[b])[1]]))

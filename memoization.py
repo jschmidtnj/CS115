@@ -5,7 +5,7 @@ Created on Oct 3, 2017
 '''
 import time
 import sys
-sys.setrecursionlimit(100000)
+sys.setrecursionlimit(10000)
 
 def fib(n):
     if n <= 1:
@@ -28,8 +28,8 @@ def fib_memo(n):
     #pass in empty dictionary
     return fib_helper(n, {})
 
-print(fib_memo(6301))
-print(fib_memo(900))
+print(fib_memo(400))
+#print(fib_memo(900))
 
 def LCS(S1, S2):
     """returns the length of the longest common subsequence in strings S1 and S2. """
@@ -95,7 +95,7 @@ def subset_with_values_memo(target, lst):
         return result
     return subset_helper(target, 0, {})
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start_time = time.time()
     print(subset_memo(100000, list(range(550))))
     print('Computation time with memoization', time.time() - start_time, 'seconds')

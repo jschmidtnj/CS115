@@ -57,24 +57,31 @@ def pascal_row(n):
 print(pascal_row(3))
 
 """
+
+
 def pascal_row(n):
+
+    def helpRows(lst1, lst2):
+        if lst1 == [] or lst2 == []:
+            return []
+        return [(lst1[0], lst2[0])] + helpRows(lst1[1:], lst2[1:])
+
+    def summation(lst):
+        if lst == []:
+            return []
+        return [sum(lst[0])] + summation(lst[1:])
+
     def triangle(n, lst):
-        if lst ==[]:
+        if lst == []:
             lst = [[1]]
         if n == 1:
             return lst
         else:
             oldRow = lst[-1]
-            def helpRows(lst1, lst2):
-                if lst1 == [] or lst2 == []:
-                    return []
-                return [(lst1[0], lst2[0])] + helpRows(lst1[1:], lst2[1:])
-            def summation(lst):
-                if lst == []:
-                    return []
-                return [sum(lst[0])] + summation(lst[1:])
             newRow = [1] + summation(helpRows(oldRow, oldRow[1:])) + [1]
             return triangle(n - 1, lst + [newRow])
+
     return triangle(n + 1, [])
 
-print(pascal_row(5))
+if __name__ == "__main__":
+    print(pascal_row(5))
