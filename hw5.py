@@ -92,6 +92,7 @@ def goodTree(length, level):
     width = 4
     turtle.width(width)
     turtle.left(90)
+    turtle.pencolor("brown")
     turtle.forward(length)
     def treeHelp(length, level):
         width = turtle.width() #saves current width
@@ -140,7 +141,7 @@ print(fast_change(888, [1, 5, 10, 20, 50, 100]))
 # Should take a few seconds to draw a sv_tree.
 
 print("TREE_TESTS")
-sv_tree(100, 6)
+#sv_tree(100, 6)
 turtle.clear()
 goodTree(100,6)
 turtle.clear()
