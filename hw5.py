@@ -21,7 +21,6 @@ def sv_tree(trunk_length, levels):
     sv_tree(trunk_length / 2, levels - 1)
     turtle.left(45)
     turtle.backward(trunk_length)
-    return #I don't know if I need this here...
 
 def lucas(n):
     """returns lucas numbers - like Fibonacci"""
@@ -74,14 +73,10 @@ def fast_change(amount, coins):
             return memo[(amount, coins)]
         if amount == 0:
             result = 0
-        elif coins == (): #DUH! - tuples = (), not []!
+        elif coins == () or amount < 0: #DUH! - tuples = (), not []!
             result = float("inf")
         else:
-            amountUse = amount - coins[0]
-            if amountUse < 0:
-                result = fast_change_helper(amount, coins[1:], memo)
-            else:
-                result = min(fast_change_helper(amount, coins[1:], memo), 1 + fast_change_helper(amountUse, coins, memo))
+            result = min(fast_change_helper(amount, coins[1:], memo), 1 + fast_change_helper(amount - coins[0], coins, memo))
         memo[(amount, coins)] = result
         return result
     # Call the helper. Note we converted the list to a tuple.
@@ -124,6 +119,7 @@ def goodTree(length, level):
     treeHelp(length, 4-level) #do not know why this number is weird
 
 #goodTree(120, 4)
+
 print("FAST_LUCAS_TEST")
 print(fast_lucas(3))  # 4
 print(fast_lucas(5))  # 11
@@ -131,6 +127,7 @@ print(fast_lucas(9))  # 76
 print(fast_lucas(24))  # 103682
 print(fast_lucas(40))  # 228826127
 print(fast_lucas(50))  # 28143753123 #INSTANT!
+
 #print(tuple([1, 5, 10, 20, 50, 100]))
 
 print("FAST_CHANGE_TEST")
@@ -141,6 +138,7 @@ print(fast_change(724, [1, 5, 10, 20, 50, 100]))
 print(fast_change(888, [1, 5, 10, 20, 50, 100]))
 
 # Should take a few seconds to draw a sv_tree.
+
 print("TREE_TESTS")
 sv_tree(100, 6)
 turtle.clear()
